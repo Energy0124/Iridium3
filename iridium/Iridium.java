@@ -7,7 +7,7 @@
  * All rights reserved.
  * See the included LICENSE file
  */
-package minecraft.com.gmail.mstojcevich.iridium;
+package com.gmail.mstojcevich.iridium;
 
 import net.minecraft.src.Minecraft;
 
@@ -49,7 +49,7 @@ public class Iridium {
 
     /**
      * Runs on startup of Minecraft
-     * @param Minecraft instance
+     * @param mc Minecraft instance
      */
     public void startupIridium(Minecraft mc){
         this.mc = mc;
