@@ -10,6 +10,7 @@
 
 package com.gmail.mstojcevich.iridium.mods;
 
+import com.gmail.mstojcevich.iridium.Iridium;
 import com.gmail.mstojcevich.lib.module.Bindable;
 import com.gmail.mstojcevich.lib.module.Module;
 
@@ -37,6 +38,11 @@ public abstract class IridiumModule extends Module implements Bindable {
      * The category of the mod
      */
     private ModCategory category = ModCategory.OTHER;
+    /**
+     * Whether or not a module is toggleable
+     */
+    private boolean isToggleable = true;
+    private boolean displayInEnabledList = true;
 
     //Disabled constructors
     private IridiumModule() {
@@ -75,6 +81,71 @@ public abstract class IridiumModule extends Module implements Bindable {
     @Override
     public int getKeybind() {
         return this.keybind;
+    }
+
+    /**
+     * Switches the toggle state of the mod
+     */
+    public void toggleMod() {
+        this.setToggled(!this.getToggled());
+    }
+
+    @Override
+    public void setToggled(boolean toggle) {
+        if(this.getToggleable()) {
+            super.setToggled(toggle);
+            if (this.getToggled()) {
+                this.onEnable();
+            } else {
+                this.onDisable();
+            }
+        }
+    }
+
+    /**
+     * Runs on the enable of the mod
+     */
+    private void onEnable() {
+        Iridium.instance.moduleManager.enabledMods.add(this);
+    }
+
+    /**
+     * Runs on the disable of the mod
+     */
+    private void onDisable() {
+        Iridium.instance.moduleManager.enabledMods.remove(this);
+    }
+
+    /**
+     * Gets whether or not the mod can be toggled
+     * @return whether or not the mod can be toggled
+     */
+    public boolean getToggleable() {
+        return this.isToggleable;
+    }
+
+    /**
+     * Sets whether or not the mod can be toggled
+     * @param toggleable whether or not the mod can be toggled
+     */
+    public void setToggleable(boolean toggleable) {
+        this.isToggleable = toggleable;
+    }
+
+    /**
+     * Gets whether or not the mod should be displayed on the enabled mod list
+     * @return Whether or not the mod should be displayed
+     */
+    public boolean getDisplayInEnabledList() {
+        return this.displayInEnabledList;
+    }
+
+    /**
+     * Sets whether or not the mod should be displayed on the enabled mod list
+     * @param display Whether or not the mod should be displayed
+     */
+    public void setDisplayInEnabledList(boolean display) {
+        this.displayInEnabledList = display;
     }
 
 }

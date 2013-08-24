@@ -29,9 +29,14 @@ import java.util.zip.ZipFile;
 public class IridiumModuleManager extends ModuleManager {
     
     /**
-     * Array of loaded modules
+     * List of loaded modules
      */
     private List<IridiumModule> modules = new ArrayList<IridiumModule>();
+
+    /**
+     * List of enabled modules
+     */
+    public List<IridiumModule> enabledMods = new ArrayList<IridiumModule>();
 
     /**
      * Creates a new module manager using 
