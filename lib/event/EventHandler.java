@@ -62,14 +62,14 @@ public class EventHandler {
      */
     private void sendEventsToPriority(Event event, EventPriority priority){
         for(ListenerInstance listenerInstance : this.listeners){
-            //Stop any cancelled events
-            if(event instanceof Cancellable){
-                Cancellable cancellable = (Cancellable)event;
-                if(cancellable.getCancelled()){
-                    return;
-                }
-            }
             for (Method method : listenerInstance.methods) {
+                //Stop any cancelled events
+                if(event instanceof Cancellable){
+                    Cancellable cancellable = (Cancellable)event;
+                    if(cancellable.getCancelled()){
+                        return;
+                    }
+                }
                 if(method.getAnnotation(HandleEvent.class).priority() != priority)continue;
                 for (Class<?> c : method.getParameterTypes()) {
                     if (event.getClass().isAssignableFrom(c)) {
