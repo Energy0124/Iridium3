@@ -37,6 +37,8 @@ public abstract class ModuleManager {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
+            } catch (ClassCastException e) {
+            	e.printStackTrace();
             }
         }
         return moduleList.toArray(new Module[moduleList.size()]);
