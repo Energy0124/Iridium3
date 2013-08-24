@@ -57,18 +57,22 @@ public abstract class ModuleManager {
             String packageDirectory) {
         List<Module> moduleList = new ArrayList<Module>();
         
-        for(Class indexClass : ReflectionHelper
-                .getClassesFromExternalJar(jarFile, packageDirectory)) {
-            try {
-                Module module = (Module)indexClass.newInstance();
-                moduleList.add(module);
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (ClassCastException e) {
-                //e.printStackTrace();
-            }
+        Class[] jarClassList = ReflectionHelper
+                .getClassesFromExternalJar(jarFile, packageDirectory);
+        
+        if (jarClassList != null) { 
+	        for(Class indexClass : jarClassList) {
+	            try {
+	                Module module = (Module)indexClass.newInstance();
+	                moduleList.add(module);
+	            } catch (InstantiationException e) {
+	                e.printStackTrace();
+	            } catch (IllegalAccessException e) {
+	                e.printStackTrace();
+	            } catch (ClassCastException e) {
+	                //e.printStackTrace();
+	            }
+	        }
         }
         
         return moduleList.toArray(new Module[moduleList.size()]);
