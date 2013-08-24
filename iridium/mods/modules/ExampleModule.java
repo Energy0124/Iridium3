@@ -13,6 +13,7 @@ package com.gmail.mstojcevich.iridium.mods.modules;
 import com.gmail.mstojcevich.iridium.mods.IridiumModule;
 
 /**
+ * An example module class
  * @author marcusant
  * @version 1
  * @since 8/24/13 12:21 AM
