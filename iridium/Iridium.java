@@ -9,6 +9,7 @@
  */
 package com.gmail.mstojcevich.iridium;
 
+import com.gmail.mstojcevich.iridium.mods.IridiumModuleManager;
 import com.gmail.mstojcevich.lib.event.EventHandler;
 import net.minecraft.src.Minecraft;
 
@@ -52,6 +53,8 @@ public class Iridium {
      * Event handler used for all Iridium events
      */
     public final EventHandler eventHandler = new EventHandler();
+
+    public final IridiumModuleManager moduleManager = new IridiumModuleManager();
 
     /**
      * Runs on startup of Minecraft
