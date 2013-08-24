@@ -10,6 +10,10 @@
 
 package com.gmail.mstojcevich.iridium.mods;
 
+import com.gmail.mstojcevich.iridium.Iridium;
+import com.gmail.mstojcevich.iridium.events.other.EventKeypress;
+import com.gmail.mstojcevich.lib.event.EventListener;
+import com.gmail.mstojcevich.lib.event.HandleEvent;
 import com.gmail.mstojcevich.lib.file.FileHelper;
 import com.gmail.mstojcevich.lib.module.Module;
 import com.gmail.mstojcevich.lib.module.ModuleManager;
@@ -26,7 +30,7 @@ import java.util.zip.ZipFile;
  * @version 1
  * @since 8/24/13 12:14 AM
  */
-public class IridiumModuleManager extends ModuleManager {
+public class IridiumModuleManager extends ModuleManager implements EventListener {
     
     /**
      * List of loaded modules
@@ -45,6 +49,17 @@ public class IridiumModuleManager extends ModuleManager {
      */
     public IridiumModuleManager() {
         this.loadModules();
+        Iridium.instance.eventHandler.registerListener(this);
+    }
+
+    @HandleEvent
+    public void pressKey(EventKeypress event) {
+        int keyCode = event.getKeyCode();
+        for (IridiumModule mod : this.modules) {
+            if (keyCode == mod.getKeybind()) {
+                mod.toggleMod();
+            }
+        }
     }
     
     /**
