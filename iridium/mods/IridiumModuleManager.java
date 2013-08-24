@@ -59,9 +59,12 @@ public class IridiumModuleManager extends ModuleManager {
             this.modules.add(module);
         }
         
-        for(IridiumModule module : this.getModules()){
+    	System.out.println("Loaded Iridium modules");
+    	System.out.println("-----------------------");
+        for (IridiumModule module : this.getModules()) {
             System.out.println(module.getTitle());
         }
+    	System.out.println("-----------------------");
     }
 
     /**
