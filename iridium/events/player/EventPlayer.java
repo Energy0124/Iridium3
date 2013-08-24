@@ -19,7 +19,7 @@ import net.minecraft.src.EntityPlayer;
  * @version 1
  * @since 8/24/13 4:04 PM
  */
-public class EventPlayer extends Event {
+public abstract class EventPlayer extends Event {
 
     private EntityPlayer player;
 

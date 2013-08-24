@@ -34,6 +34,7 @@ public abstract class IridiumModule extends Module implements Bindable {
      * The title of the mod
      */
     private String title;
+
     /**
      * The category of the mod
      */
@@ -146,6 +147,13 @@ public abstract class IridiumModule extends Module implements Bindable {
      */
     public void setDisplayInEnabledList(boolean display) {
         this.displayInEnabledList = display;
+    }
+
+    /**
+     * @return the ModCategory of the mod
+     */
+    public ModCategory getCategory() {
+        return this.category;
     }
 
 }
