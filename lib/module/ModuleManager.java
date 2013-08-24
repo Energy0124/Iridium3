@@ -53,12 +53,11 @@ public abstract class ModuleManager {
      * separated with periods
      * @param jarFile The target jar file to create modules from
      */
-    public Module[] createModuleInstancesFromPackageInJar(File jarFile, 
-            String packageDirectory) {
+    public Module[] createModuleInstancesFromPackageInJar(File jarFile) {
         List<Module> moduleList = new ArrayList<Module>();
         
         Class[] jarClassList = ReflectionHelper
-                .getClassesFromExternalJar(jarFile, packageDirectory);
+                .getClassesFromExternalJar(jarFile);
         
         if (jarClassList != null) { 
 	        for(Class indexClass : jarClassList) {

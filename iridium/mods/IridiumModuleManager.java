@@ -98,8 +98,7 @@ public class IridiumModuleManager extends ModuleManager {
         File[] jars = FileHelper.getFilesOfTypeInDirectory(jarDirectory, "jar");
         for (File jarFile : jars) {
             for (Module module 
-                    : this.createModuleInstancesFromPackageInJar(jarFile,
-                    this.getTargetPackageFromJar(jarFile))) {
+                    : this.createModuleInstancesFromPackageInJar(jarFile)) {
                 if(module instanceof IridiumModule) {
                     moduleList.add((IridiumModule)module);
                 }
