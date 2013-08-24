@@ -10,12 +10,14 @@
 
 package com.gmail.mstojcevich.lib.event;
 
+import com.gmail.mstojcevich.lib.module.Titled;
+
 /**
  * @author marcusant
  * @version 1
  * @since 8/23/13 2:49 PM
  */
-public class Event {
+public class Event implements Titled {
 
     /**
      * Title of the event used for debugging.
@@ -37,4 +39,13 @@ public class Event {
         this.name = name;
     }
 
+    @Override
+    public void setTitle(String title) {
+        this.name = title;
+    }
+
+    @Override
+    public String getTitle() {
+        return this.name;
+    }
 }

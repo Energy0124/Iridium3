@@ -14,9 +14,11 @@ import com.gmail.mstojcevich.lib.file.FileHelper;
 import com.gmail.mstojcevich.lib.module.Module;
 import com.gmail.mstojcevich.lib.module.ModuleManager;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 /**
  * Implementation of ModuleManager for IridiumModules
@@ -79,7 +81,7 @@ public class IridiumModuleManager extends ModuleManager {
     
     /**
      * Creates Iridium modules from jars in a given directory
-     * @param jarDirctory Directory that contains jar files
+     * @param jarDirectory Directory that contains jar files
      * @return array of IridumModules
      */
     /* TODO have file in jar specify the package to search for mods,
@@ -93,7 +95,8 @@ public class IridiumModuleManager extends ModuleManager {
         File[] jars = FileHelper.getFilesOfTypeInDirectory(jarDirectory, "jar");
         for (File jarFile : jars) {
             for (Module module 
-                    : this.createModuleInstancesFromPackageInJar(jarFile, "")) {
+                    : this.createModuleInstancesFromPackageInJar(jarFile,
+                    this.getTargetPackageFromJar(jarFile))) {
                 if(module instanceof IridiumModule) {
                     moduleList.add((IridiumModule)module);
                 }
@@ -103,6 +106,37 @@ public class IridiumModuleManager extends ModuleManager {
         return moduleList.toArray(new IridiumModule[moduleList.size()]);
     }
 
+    /**
+     * Looks at the modpackage file in a jar to determine
+     * what directory to look for Iridium modules in
+     * @param jar Jar file in which to search
+     * @return package directory separated by periods
+     */
+    private String getTargetPackageFromJar(File jar) {
+        String defaultPackage = "";
+        try {
+            ZipFile jarZip = new ZipFile(jar);
+            ZipEntry zipEntry = jarZip.getEntry("modpackage");
+            if (zipEntry == null) {
+                return defaultPackage;
+            }
+            InputStream inputStream = jarZip.getInputStream
+                    (jarZip.getEntry("modpackage"));
+            BufferedReader reader = new BufferedReader
+                    (new InputStreamReader(inputStream));
+            String currentLine;
+            while ((currentLine = reader.readLine()) != null) {
+                if(currentLine.trim().length() > 0) {
+                    return currentLine.trim();
+                }
+            }
+            return defaultPackage;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return defaultPackage;
+        }
+    }
+
     @Override
     /**
      * Returns an array of the currently loaded modules
@@ -110,4 +144,5 @@ public class IridiumModuleManager extends ModuleManager {
     public IridiumModule[] getModules() {
         return this.modules.toArray(new IridiumModule[this.modules.size()]);
     }
+
 }

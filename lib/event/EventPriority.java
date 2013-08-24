@@ -9,6 +9,6 @@ package com.gmail.mstojcevich.lib.event;
  */
 public enum EventPriority {
 
-    FIRST, NORMAL, LAST;
+    FIRST, NORMAL, LAST
 
 }
