@@ -8,7 +8,7 @@
  * See the included LICENSE file
  */
 
-package minecraft.com.gmail.mstojcevich.lib.math;
+package com.gmail.mstojcevich.lib.math;
 
 import java.util.Random;
 

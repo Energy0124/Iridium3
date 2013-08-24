@@ -8,7 +8,7 @@
  * See the included LICENSE file
  */
 
-package minecraft.com.gmail.mstojcevich.lib.math;
+package com.gmail.mstojcevich.lib.math;
 
 /**
  * Many functions to assist in trigonometry
