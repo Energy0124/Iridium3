@@ -11,6 +11,7 @@
 package com.gmail.mstojcevich.iridium.mods.modules;
 
 import com.gmail.mstojcevich.iridium.mods.IridiumModule;
+import com.gmail.mstojcevich.iridium.mods.ModCategory;
 
 /**
  * An example module class
@@ -19,4 +20,9 @@ import com.gmail.mstojcevich.iridium.mods.IridiumModule;
  * @since 8/24/13 12:21 AM
  */
 public class ExampleModule extends IridiumModule {
+
+    public ExampleModule() {
+        super(ModCategory.OTHER);
+    }
+
 }

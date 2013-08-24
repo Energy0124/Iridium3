@@ -33,6 +33,39 @@ public abstract class IridiumModule extends Module implements Bindable {
      * The title of the mod
      */
     private String title;
+    /**
+     * The category of the mod
+     */
+    private ModCategory category = ModCategory.OTHER;
+
+    //Disabled constructors
+    private IridiumModule() {
+        super();
+    }
+    private IridiumModule(String name) {
+        super();
+    }
+
+    //Protected constructors
+
+    /**
+     * Creates an Iridium module with the specified name and category
+     * @param name
+     * @param category
+     */
+    protected IridiumModule(String name, ModCategory category) {
+        super(name);
+        this.category = category;
+    }
+
+    /**
+     * Creates an Iridium module with the specified category
+     * @param category
+     */
+    protected IridiumModule(ModCategory category) {
+        super();
+        this.category = category;
+    }
 
     @Override
     public void setKeybind(int keycode) {
