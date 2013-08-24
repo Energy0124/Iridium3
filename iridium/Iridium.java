@@ -64,7 +64,7 @@ public class Iridium {
      * Runs on startup of Minecraft
      * @param mc Minecraft instance
      */
-    public void startupIridium(Minecraft mc){
+    public void startupIridium(Minecraft mc) {
         this.mc = mc;
         System.out.println(Iridium.CLIENT_NAME + " startup");
 

@@ -10,6 +10,7 @@
 
 package com.gmail.mstojcevich.mclib;
 
+import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.FontRenderer;
 import net.minecraft.src.GameSettings;
 import net.minecraft.src.Minecraft;
@@ -31,6 +32,10 @@ public class MinecraftWrapper {
 
     public static FontRenderer getFontRenderer() {
         return getMinecraft().fontRenderer;
+    }
+
+    public static EntityPlayer getPlayer() {
+        return getMinecraft().thePlayer;
     }
 
 }

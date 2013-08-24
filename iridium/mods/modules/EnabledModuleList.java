@@ -55,7 +55,6 @@ public class EnabledModuleList extends IridiumModule implements EventListener {
             final int xPosition = width - padding - moduleNameWidth;
             this.fontRenderer.drawStringWithShadow(module.getTitle(), xPosition, yPosition,
                     module.getCategory().color);
-            System.out.println(module.getTitle());
             yPosition += this.fontRenderer.FONT_HEIGHT + spacing;
         }
     }
