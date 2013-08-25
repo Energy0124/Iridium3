@@ -107,9 +107,6 @@ public class IridiumModuleManager extends ModuleManager implements EventListener
      * @param jarDirectory Directory that contains jar files
      * @return array of IridumModules
      */
-    /* TODO have file in jar specify the package to search for mods,
-     * currently just uses the root dir
-     */
     private IridiumModule[] createIridiumModulesJars(File jarDirectory) {
         if(!jarDirectory.exists())jarDirectory.mkdir();
         
