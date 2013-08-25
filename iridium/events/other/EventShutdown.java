@@ -1,22 +1,23 @@
 /*
- * EventRender
+ * EventShutdown
  *
- * 8/24/13
+ * 8/25/13
  *
  * Copyright (c) 2013, Marcus Stojcevich
  * All rights reserved.
  * See the included LICENSE file
  */
 
-package com.gmail.mstojcevich.iridium.events.render;
+package com.gmail.mstojcevich.iridium.events.other;
 
 import com.gmail.mstojcevich.lib.event.Event;
 
 /**
- * Base event for render events
+ * Event fired on shutdown of the Minecraft applet
  * @author marcusant
  * @version 1
- * @since 8/24/13 5:24 PM
+ * @since 8/25/13 1:26 AM
  */
-public abstract class EventRender extends Event {
+public class EventShutdown extends Event {
+
 }

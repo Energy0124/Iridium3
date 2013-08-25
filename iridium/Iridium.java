@@ -14,6 +14,8 @@ import com.gmail.mstojcevich.iridium.mods.IridiumModuleManager;
 import com.gmail.mstojcevich.lib.event.EventHandler;
 import net.minecraft.src.Minecraft;
 
+import java.io.File;
+
 /**
  * Main class for Iridium, contains instances for many of the handlers
  * amongst other things such as project information.
@@ -72,5 +74,13 @@ public class Iridium {
         this.moduleManager = new IridiumModuleManager();
 
         this.eventHandler.fireEvent(new EventStartup());
+    }
+
+    public File getIridiumDirectory() {
+        File iridiumDirectory = new File("." + File.separator + "iridium");
+        if(!iridiumDirectory.exists()) {
+            iridiumDirectory.mkdir();
+        }
+        return iridiumDirectory;
     }
 }

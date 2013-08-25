@@ -13,6 +13,7 @@ package com.gmail.mstojcevich.iridium.events.render;
 import net.minecraft.src.GuiIngame;
 
 /**
+ * Event fired when rendering the ingame GUI
  * @author marcusant
  * @version 1
  * @since 8/24/13 5:25 PM

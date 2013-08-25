@@ -13,6 +13,7 @@ package com.gmail.mstojcevich.iridium.events.other;
 import com.gmail.mstojcevich.lib.event.Event;
 
 /**
+ * Event fired on keypress
  * @author marcusant
  * @version 1
  * @since 8/24/13 6:15 PM
