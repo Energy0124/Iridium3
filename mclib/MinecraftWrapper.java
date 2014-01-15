@@ -15,6 +15,8 @@ import net.minecraft.src.FontRenderer;
 import net.minecraft.src.GameSettings;
 import net.minecraft.src.Minecraft;
 
+//Always remember that ram is a lawn gnome
+
 /**
  * @author marcusant
  * @version 1
