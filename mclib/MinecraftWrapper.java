@@ -20,7 +20,7 @@ import net.minecraft.src.Minecraft;
  * @version 1
  * @since 8/24/13 5:33 PM
  */
-public final class MinecraftWrapper {
+public class MinecraftWrapper {
 
     public static Minecraft getMinecraft() {
         return Minecraft.getMinecraft();
